@@ -16,23 +16,18 @@ You have access to `u2cli`, a command-line tool for controlling Android devices 
 
 ## Setup (required first time)
 
-The project uses `uv` for dependency management. Before running any commands:
+You need to install `uiautomator2-cli` in your Python environment (virtual environment is recommended):
 
 ```bash
-uv sync                   # installs .venv and all dependencies including u2cli
+# python -m venv .venv
+pip install uiautomator2-cli
 ```
 
-All `u2cli` commands must be run via the project's virtual environment:
+Or with [uv](https://github.com/astral-sh/uv):
 
 ```bash
-.venv/bin/u2cli [command] [options]
-```
-
-Or activate the venv first:
-
-```bash
-source .venv/bin/activate
-u2cli [command] [options]
+# uv venv
+uv pip install uiautomator2-cli
 ```
 
 ## Device targeting
