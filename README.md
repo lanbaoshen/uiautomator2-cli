@@ -16,6 +16,12 @@ Or with [uv](https://github.com/astral-sh/uv):
 uv tool install uiautomator2-cli
 ```
 
+Or install skills:
+
+```bash
+npx skills add https://github.com/lanbaoshen/uiautomator2-cli --skill uiautomator2
+```
+
 ## Requirements
 
 - Python >= 3.8
