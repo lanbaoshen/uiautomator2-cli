@@ -12,6 +12,9 @@ Command groups:
 
 from __future__ import annotations
 
+import json
+import sys
+
 import click
 
 # Element commands
@@ -163,7 +166,16 @@ cli.add_command(cmd_app_wait, name="app-wait")
 
 
 def main():
-    cli()
+    try:
+        cli(standalone_mode=False)
+    except click.exceptions.Exit:
+        pass
+    except click.ClickException as e:
+        click.echo(json.dumps({"error": e.format_message(), "type": type(e).__name__}), err=True)
+        sys.exit(e.exit_code)
+    except Exception as e:
+        click.echo(json.dumps({"error": str(e), "type": type(e).__name__}), err=True)
+        sys.exit(1)
 
 
 if __name__ == "__main__":

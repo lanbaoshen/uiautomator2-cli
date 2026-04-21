@@ -79,7 +79,7 @@ def build_selector_kwargs(**kwargs) -> dict:
 
 
 @click.command("click")
-@click.option("--timeout", default=10.0, type=float, help="Wait timeout in seconds")
+@click.option("--timeout", default=3.0, type=float, help="Wait timeout in seconds")
 @add_selector_options
 def cmd_click(timeout, **kwargs):
     """Click on a UI element matching the given selector."""
@@ -97,7 +97,7 @@ def cmd_click(timeout, **kwargs):
 
 @click.command("long-click")
 @click.option("--duration", default=0.5, type=float, help="Long press duration in seconds")
-@click.option("--timeout", default=10.0, type=float, help="Wait timeout in seconds")
+@click.option("--timeout", default=3.0, type=float, help="Wait timeout in seconds")
 @add_selector_options
 def cmd_long_click(duration, timeout, **kwargs):
     """Long-click on a UI element."""
@@ -114,7 +114,7 @@ def cmd_long_click(duration, timeout, **kwargs):
 
 
 @click.command("get-text")
-@click.option("--timeout", default=10.0, type=float, help="Wait timeout in seconds")
+@click.option("--timeout", default=3.0, type=float, help="Wait timeout in seconds")
 @add_selector_options
 def cmd_get_text(timeout, **kwargs):
     """Get the text of a UI element."""
@@ -131,7 +131,7 @@ def cmd_get_text(timeout, **kwargs):
 
 
 @click.command("set-text")
-@click.option("--timeout", default=10.0, type=float, help="Wait timeout in seconds")
+@click.option("--timeout", default=3.0, type=float, help="Wait timeout in seconds")
 @click.argument("text")
 @add_selector_options
 def cmd_set_text(timeout, text, **kwargs):
@@ -149,7 +149,7 @@ def cmd_set_text(timeout, text, **kwargs):
 
 
 @click.command("clear-text")
-@click.option("--timeout", default=10.0, type=float, help="Wait timeout in seconds")
+@click.option("--timeout", default=3.0, type=float, help="Wait timeout in seconds")
 @add_selector_options
 def cmd_clear_text(timeout, **kwargs):
     """Clear text from a UI element."""
@@ -189,7 +189,7 @@ def cmd_exists(timeout, **kwargs):
 
 
 @click.command("wait")
-@click.option("--timeout", default=10.0, type=float, help="Timeout in seconds")
+@click.option("--timeout", default=3.0, type=float, help="Timeout in seconds")
 @click.option(
     "--gone",
     is_flag=True,
@@ -218,7 +218,7 @@ def cmd_wait(timeout, gone, **kwargs):
 
 
 @click.command("info")
-@click.option("--timeout", default=10.0, type=float, help="Wait timeout in seconds")
+@click.option("--timeout", default=3.0, type=float, help="Wait timeout in seconds")
 @add_selector_options
 def cmd_element_info(timeout, **kwargs):
     """Get detailed info about a UI element."""
@@ -300,7 +300,7 @@ def cmd_scroll(direction, action, max_swipes, to_text, **kwargs):
 
 
 @click.command("xpath-click")
-@click.option("--timeout", default=10.0, type=float, help="Wait timeout in seconds")
+@click.option("--timeout", default=3.0, type=float, help="Wait timeout in seconds")
 @click.argument("xpath")
 def cmd_xpath_click(timeout, xpath):
     """Click on an element found by XPath expression.
