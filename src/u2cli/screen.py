@@ -160,9 +160,11 @@ def cmd_screenshot(filename):
     """Take a screenshot and save to FILENAME (default: screenshot.png)."""
     u2_code = f"d.screenshot({filename!r})"
     d = connect_device()
-    d.screenshot(filename)
     abs_path = os.path.abspath(filename)
-    output_result(None, u2_code, extra={"saved_to": abs_path})
+    img = d.screenshot()
+    width, height = img.size
+    img.save(abs_path)
+    output_result(None, u2_code, extra={"saved_to": abs_path, "resolution": f"{width}x{height}"})
 
 
 @click.command("dump-hierarchy")

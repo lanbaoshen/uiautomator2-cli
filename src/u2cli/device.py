@@ -27,7 +27,7 @@ def connect_device(serial: Optional[str] = None) -> u2.Device:
             d = u2.connect()
         return d
     except Exception as e:
-        click.echo(json.dumps({"error": str(e), "type": type(e).__name__}), err=True)
+        click.echo(json.dumps({"error": str(e), "type": type(e).__name__}, ensure_ascii=False), err=True)
         sys.exit(1)
 
 
@@ -63,7 +63,7 @@ def output_result(
         data["result"] = result
 
     if output_json:
-        click.echo(json.dumps(data, default=str))
+        click.echo(json.dumps(data, default=str, ensure_ascii=False))
     else:
         click.echo(f"u2_code: {u2_code}")
         if extra:
@@ -71,6 +71,6 @@ def output_result(
                 click.echo(f"{k}: {v}")
         if result is not None:
             if isinstance(result, (dict, list)):
-                click.echo(json.dumps(result, default=str, indent=2))
+                click.echo(json.dumps(result, default=str, indent=2, ensure_ascii=False))
             else:
                 click.echo(f"result: {result}")

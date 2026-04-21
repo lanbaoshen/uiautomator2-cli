@@ -171,10 +171,10 @@ def main():
     except click.exceptions.Exit:
         pass
     except click.ClickException as e:
-        click.echo(json.dumps({"error": e.format_message(), "type": type(e).__name__}), err=True)
+        click.echo(json.dumps({"error": e.format_message(), "type": type(e).__name__}, ensure_ascii=False), err=True)
         sys.exit(e.exit_code)
     except Exception as e:
-        click.echo(json.dumps({"error": str(e), "type": type(e).__name__}), err=True)
+        click.echo(json.dumps({"error": str(e), "type": type(e).__name__}, ensure_ascii=False), err=True)
         sys.exit(1)
 
 
