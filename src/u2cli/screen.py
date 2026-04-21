@@ -89,8 +89,6 @@ def _render_node(node: ET.Element, lines: list[str], depth: int) -> None:
 
     rid = node.get("resource-id", "").strip()
     if rid:
-        # Strip package prefix: "com.android.settings:id/title" → "settings:id/title"
-        rid = re.sub(r"^[a-z][a-z0-9_]*\.", "", rid)
         parts.append(f"#{rid}")
 
     bounds = node.get("bounds", "")
